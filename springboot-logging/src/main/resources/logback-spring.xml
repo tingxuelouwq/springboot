@@ -4,9 +4,6 @@
     <property name="log.path" value="D:/logs" />
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-             <level>ERROR</level>
-         </filter>-->
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -26,11 +23,20 @@
 
     <root level="info">
         <appender-ref ref="console" />
-        <appender-ref ref="file" />
+        <!--<appender-ref ref="file" />-->
     </root>
 
-    <logger name="com.dudu.controller"/>
-    <logger name="com.dudu.controller.LearnController" level="WARN" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
+    <!--<logger name="com.kevin.springboot.controller"/>-->
+    <!--<logger name="com.kevin.springboot.controller.LoggingController" level="WARN" additivity="false">-->
+        <!--<appender-ref ref="console"/>-->
+    <!--</logger>-->
+
+    <!-- 测试环境+开发环境，用逗号分隔-->
+    <springProfile name="test,dev">
+        <logger name="com.kevin.springboot.controller" level="INFO"/>
+    </springProfile>
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <logger name="com.kevin.springboot.controller" level="WARN"/>
+    </springProfile>
 </configuration>
