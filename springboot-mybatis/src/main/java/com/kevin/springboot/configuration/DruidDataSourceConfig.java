@@ -1,4 +1,4 @@
-//package com.kevin.springboot.configuration;
+package com.kevin.springboot.configuration;//package com.kevin.springboot.configuration;
 //
 //import com.alibaba.druid.pool.DruidDataSource;
 //import org.springframework.boot.bind.RelaxedPropertyResolver;

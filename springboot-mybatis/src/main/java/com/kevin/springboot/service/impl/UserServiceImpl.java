@@ -17,8 +17,33 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User getByUsername(String username) {
-        return userMapper.getByUsername(username);
+    public int insert(User user) {
+        return userMapper.insert(user);
+    }
+
+    @Override
+    public int delete(long id) {
+        return userMapper.delete(id);
+    }
+
+    @Override
+    public int update(User user) {
+        return userMapper.update(user);
+    }
+
+    @Override
+    public User select(int id) {
+        return userMapper.select(id);
+    }
+
+    @Override
+    public int deleteByIds(String[] ids) {
+        return userMapper.deleteByIds(ids);
+    }
+
+    @Override
+    public User verify(String username, String userPwd) {
+        return userMapper.verify(username, userPwd);
     }
 
     @Override

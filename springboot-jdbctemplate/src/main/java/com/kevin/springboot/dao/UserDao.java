@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDao {
 
-    User getByUsername(String username);
+    User verify(String username, String userPwd);
 
     List<User> listAll();
 }

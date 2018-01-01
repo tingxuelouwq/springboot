@@ -6,7 +6,17 @@ import java.util.List;
 
 public interface UserService {
 
-    User getByUsername(String username);
+    int insert(User user);
+
+    int delete(long id);
+
+    int update(User user);
+
+    User select(int id);
+
+    int deleteByIds(String[] ids);
+
+    User verify(String username, String userPwd);
 
     List<User> listAll();
 }

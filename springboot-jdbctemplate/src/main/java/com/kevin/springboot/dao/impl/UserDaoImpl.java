@@ -17,15 +17,19 @@ public class UserDaoImpl implements UserDao {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public User getByUsername(String username) {
-        String sql = "select * from user where username=?";
+    public User verify(String username, String userPwd) {
+        String sql = "select username, email, mobile_no from user where username=? and user_pwd=?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
-        return jdbcTemplate.queryForObject(sql, rowMapper, username);
+        List<User> users = jdbcTemplate.query(sql, rowMapper, username, userPwd);
+        if (users != null && users.size() > 0) {
+            return users.get(0);
+        }
+        return null;
     }
 
     @Override
     public List<User> listAll() {
-        String sql = "select * from user";
+        String sql = "select username, email, mobile_no from user";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
         return jdbcTemplate.query(sql, rowMapper);
     }
