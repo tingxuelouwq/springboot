@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Map;
 
 @Component
 @Mapper
@@ -20,13 +19,14 @@ public interface UserMapper {
     @Update("update user set username=#{username}, user_pwd=#{userPwd}, email=#{email}, mobile_no=#{mobileNo}")
     int update(User user);
 
-    @Select("select username, email, mobile_no from user where id=#{id}")
+    @Select("select * from user where id=#{id}")
     @Results({
             @Result(column = "username", property = "username", javaType = String.class),
+            @Result(column = "user_pwd", property = "userPwd", javaType = String.class),
             @Result(column = "email", property = "email", javaType = String.class),
             @Result(column = "mobile_no", property = "mobileNo", javaType = String.class)
     })
-    User select(int id);
+    User select(long id);
 
     @DeleteProvider(type = UserSqlBuilder.class, method = "deleteByIds")
     int deleteByIds(@Param("ids") String[] ids);
@@ -47,17 +47,19 @@ public interface UserMapper {
         }
     }
 
-    @Select("select username, email, mobile_no from user where username=#{username} and user_pwd=#{userPwd}")
+    @Select("select * from user where username=#{username} and user_pwd=#{userPwd}")
     @Results({
             @Result(column = "username", property = "username", javaType = String.class),
+            @Result(column = "user_pwd", property = "userPwd", javaType = String.class),
             @Result(column = "email", property = "email", javaType = String.class),
             @Result(column = "mobile_no", property = "mobileNo", javaType = String.class)
     })
     User verify(@Param("username") String username, @Param("userPwd") String userPwd);
 
-    @Select("select username, email, mobile_no from user")
+    @Select("select * from user")
     @Results({
             @Result(column = "username", property = "username", javaType = String.class),
+            @Result(column = "user_pwd", property = "userPwd", javaType = String.class),
             @Result(column = "email", property = "email", javaType = String.class),
             @Result(column = "mobile_no", property = "mobileNo", javaType = String.class)
     })

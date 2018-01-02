@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户登录</title>
+    <link th:href="@{/css/login.css}" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div>
+    <div class="content">
+        <form th:action="@{/verify}" th:method="post">
+            <div>
+                <input name="username" type="text" placeholder="请输入用户名"/>
+            </div>
+            <div>
+                <input name="userPwd" type="password" placeholder="请输入密码"/>
+                <br/><span class="info" th:text="${errorMsg}"></span>
+            </div>
+            <div>
+                <input type="submit" value="登录" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <ul>
+            <li>测试帐号：admin</li>
+            <li>默认密码：123456</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

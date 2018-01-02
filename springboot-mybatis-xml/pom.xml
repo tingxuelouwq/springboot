@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kevin.springboot</groupId>
-	<artifactId>mybatis</artifactId>
+	<artifactId>mybatis-xml</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>springboot-mybatis</name>
-	<description>Demo project for Spring Boot MyBatis</description>
+	<name>mybatis-xml</name>
+	<description>Demo project for Spring Boot MyBatis XML</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
