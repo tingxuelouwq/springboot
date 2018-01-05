@@ -28,7 +28,7 @@ public class MybatisXmlApplicationTests {
 	@Test
 	public void testVerify() {
 		String username = "admin";
-		String userPwd = "123456";
+		String userPwd = "123";
 		Map<String, String> params = new HashMap<>();
 		params.put("username", username);
 		params.put("userPwd", userPwd);
@@ -37,8 +37,6 @@ public class MybatisXmlApplicationTests {
 	}
 
 	@Test
-	@Transactional
-	@Rollback(false)
 	public void testInsert() {
 		User user = new User();
 		user.setUsername("test");

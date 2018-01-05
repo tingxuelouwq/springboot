@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Mapper
 public interface UserMapper {
 
     @Insert("insert into user(username, user_pwd, email, mobile_no) values(#{username}, #{userPwd}, #{email}, #{mobileNo})")

@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    #datasource1
+    test1:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+      username: root
+      password: tttx
+      #初始化时建立物理连接的个数
+      initialSize: 5
+      #最小连接池数量
+      minIdle: 5
+      #最大连接池数量
+      maxActive: 20
+      #获取连接时最大等待时间，单位毫秒
+      maxWait: 60000
+      #一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      #有两个含义：1) Destroy线程会检测连接的间隔时间；2) testWhileIdle的判断依据
+      timeBetweenEvictionRunsMillis: 60000
+      #建议配置为true，不影响性能，并且保证安全性。如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      testWhileIdle: true
+      #用来检测连接是否有效的sql，要求是一个查询语句。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用
+      validationQuery: SELECT 1
+
+    #datasource2
+    test2:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test2?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+      username: root
+      password: tttx
+      #初始化时建立物理连接的个数
+      initialSize: 5
+      #最小连接池数量
+      minIdle: 5
+      #最大连接池数量
+      maxActive: 20
+      #获取连接时最大等待时间，单位毫秒
+      maxWait: 60000
+      #一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 30000
+      #有两个含义：1) Destroy线程会检测连接的间隔时间；2) testWhileIdle的判断依据
+      timeBetweenEvictionRunsMillis: 60000
+      #建议配置为true，不影响性能，并且保证安全性。如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      testWhileIdle: true
+      #用来检测连接是否有效的sql，要求是一个查询语句。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用
+      validationQuery: SELECT 1
+

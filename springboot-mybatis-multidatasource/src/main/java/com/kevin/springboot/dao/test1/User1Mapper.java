@@ -1,14 +1,15 @@
-package com.kevin.springboot.dao;
+package com.kevin.springboot.dao.test1;
 
 import com.kevin.springboot.domain.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
 @Component
-public interface UserMapper {
+//@Mapper
+public interface User1Mapper {
 
     int insert(User user);
 
