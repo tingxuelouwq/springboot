@@ -1,8 +1,8 @@
 package com.kevin.springboot.controller;
 
 import com.kevin.springboot.domain.User;
-import com.kevin.springboot.service.test1.User1Service;
-import com.kevin.springboot.service.test2.User2Service;
+import com.kevin.springboot.service.primary.PrimaryUserService;
+import com.kevin.springboot.service.secondary.SecondaryUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,23 +14,23 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private User1Service user1Service;
+    private PrimaryUserService primaryUserService;
 
     @Autowired
-    private User2Service user2Service;
+    private SecondaryUserService secondaryUserService;
 
-    @RequestMapping("/test1/users")
-    public ModelAndView listTest1Users() {
+    @RequestMapping("/primary/users")
+    public ModelAndView listPrimaryUsers() {
         ModelAndView modelAndView = new ModelAndView("users");
-        List<User> users = user1Service.listAll();
+        List<User> users = primaryUserService.listAll();
         modelAndView.addObject("users", users);
         return modelAndView;
     }
 
-    @RequestMapping("/test2/users")
-    public ModelAndView listTest2Users() {
+    @RequestMapping("/secondary/users")
+    public ModelAndView listSecondaryUsers() {
         ModelAndView modelAndView = new ModelAndView("users");
-        List<User> users = user2Service.listAll();
+        List<User> users = secondaryUserService.listAll();
         modelAndView.addObject("users", users);
         return modelAndView;
     }

@@ -10,27 +10,34 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
-@EnableTransactionManagement
-@MapperScan(basePackages = "com.kevin.springboot.dao.test2")
-public class DruidConfig2 {
+@MapperScan(basePackages = "com.kevin.springboot.dao.primary", sqlSessionFactoryRef = "primarySqlSessionFactory")
+public class PrimaryDruidConfig {
 
-    @Bean(name = "test2DateSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test2")
-    public DataSource test2DateSource() {
+    @Bean(name = "primaryDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.primary")
+    @Primary
+    public DataSource primaryDateSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "test2SqlSessionFactory")
-    public SqlSessionFactory test1SqlSessionFactory(@Qualifier("test2DateSource") DataSource dataSource) throws Exception {
+    @Bean(name = "primaryTransactionManager")
+    @Primary
+    public DataSourceTransactionManager primaryTransactionManager(@Qualifier("primaryDataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    @Bean(name = "primarySqlSessionFactory")
+    @Primary
+    public SqlSessionFactory primarySqlSessionFactory(@Qualifier("primaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mybatis/mapper/test2/*.xml"));
+            .getResources("classpath:mybatis/mapper/primary/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 }

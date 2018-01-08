@@ -10,27 +10,34 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.kevin.springboot.dao.test1")
-public class DruidConfig1 {
+@MapperScan(basePackages = "com.kevin.springboot.dao.primary", sqlSessionFactoryRef = "primarySqlSessionFactory")
+public class PrimaryDruidConfig {
 
-    @Bean(name = "test1DateSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test1")
+    @Bean(name = "primaryDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.primary")
     @Primary
-    public DataSource test1DateSource() {
+    public DataSource primaryDateSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "test1SqlSessionFactory")
+    @Bean(name = "primaryTransactionManager")
     @Primary
-    public SqlSessionFactory test1SqlSessionFactory(@Qualifier("test1DateSource") DataSource dataSource) throws Exception {
+    public DataSourceTransactionManager primaryTransactionManager(@Qualifier("primaryDataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    @Bean(name = "primarySqlSessionFactory")
+    @Primary
+    public SqlSessionFactory primarySqlSessionFactory(@Qualifier("primaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-            .getResources("classpath:mybatis/mapper/test1/*.xml"));
+            .getResources("classpath:mybatis/mapper/primary/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 }

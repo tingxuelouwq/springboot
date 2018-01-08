@@ -1,11 +1,14 @@
-package com.kevin.springboot.service.test1;
+package com.kevin.springboot.dao.primary;
 
 import com.kevin.springboot.domain.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
-public interface User1Service {
+@Component
+public interface PrimaryUserMapper {
 
     int insert(User user);
 
@@ -13,7 +16,7 @@ public interface User1Service {
 
     int update(User user);
 
-    User select(int id);
+    User select(long id);
 
     int deleteByIds(String[] ids);
 

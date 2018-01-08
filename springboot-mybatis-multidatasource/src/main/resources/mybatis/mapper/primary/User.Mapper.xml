@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kevin.springboot.dao.test1.User1Mapper">
+<mapper namespace="com.kevin.springboot.dao.primary.PrimaryUserMapper">
     <resultMap id="beanMap" type="com.kevin.springboot.domain.User">
         <result column="username" property="username"/>
         <result column="user_pwd" property="userPwd"/>

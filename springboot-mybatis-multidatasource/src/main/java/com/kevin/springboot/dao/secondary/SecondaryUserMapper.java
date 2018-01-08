@@ -1,4 +1,4 @@
-package com.kevin.springboot.dao.test1;
+package com.kevin.springboot.dao.secondary;
 
 import com.kevin.springboot.domain.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-//@Mapper
-public interface User1Mapper {
+public interface SecondaryUserMapper {
 
     int insert(User user);
 

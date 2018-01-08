@@ -1,11 +1,11 @@
-package com.kevin.springboot.service.test2;
+package com.kevin.springboot.service.secondary;
 
 import com.kevin.springboot.domain.User;
 
 import java.util.List;
 import java.util.Map;
 
-public interface User2Service {
+public interface SecondaryUserService {
 
     int insert(User user);
 

@@ -1,5 +1,8 @@
 package com.kevin.springboot;
 
+import com.kevin.springboot.domain.User;
+import com.kevin.springboot.service.primary.PrimaryUserService;
+import com.kevin.springboot.service.secondary.SecondaryUserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +23,12 @@ public class SpringbootMybatisMultidatasourceApplicationTests {
 	@Autowired
 	private WebApplicationContext context;
 
+	@Autowired
+	private PrimaryUserService primaryUserService;
+
+	@Autowired
+	private SecondaryUserService secondaryUserService;
+
 	private MockMvc mockMvc;
 
 	@Before
@@ -28,14 +37,30 @@ public class SpringbootMybatisMultidatasourceApplicationTests {
 	}
 
 	@Test
-	public void testListTest1Users() throws Exception {
-		mockMvc.perform(get("/test1/users"))
+	public void testListPrimaryUsers() throws Exception {
+		mockMvc.perform(get("/primary/users"))
 				.andDo(print());
 	}
 
 	@Test
-	public void testListTest2Users() throws Exception {
-		mockMvc.perform(get("/test2/users"))
+	public void testListSecondaryUsers() throws Exception {
+		mockMvc.perform(get("/secondary/users"))
 				.andDo(print());
+	}
+
+	@Test
+	public void testInsertPrimaryUser() {
+		User user = new User();
+		user.setUsername("primary");
+		user.setUserPwd("123");
+		primaryUserService.insert(user);
+	}
+
+	@Test
+	public void testInsertSecondaryUser() {
+		User user = new User();
+		user.setUsername("secondary");
+		user.setUserPwd("123");
+		secondaryUserService.insert(user);
 	}
 }
