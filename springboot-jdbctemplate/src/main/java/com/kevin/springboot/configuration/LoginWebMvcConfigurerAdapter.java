@@ -1,4 +1,4 @@
-package com.kevin.springboot.config;
+package com.kevin.springboot.configuration;
 
 import com.kevin.springboot.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.kevin.springboot.config;//package com.kevin.springboot.configuration;
+//package com.kevin.springboot.configuration;
 //
 //import com.alibaba.druid.pool.DruidDataSource;
 //import org.springframework.boot.bind.RelaxedPropertyResolver;
@@ -6,13 +6,11 @@ package com.kevin.springboot.config;//package com.kevin.springboot.configuration
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.core.env.Environment;
-//import org.springframework.transaction.annotation.EnableTransactionManagement;
 //
 //import javax.sql.DataSource;
 //
 //@Configuration
-//@EnableTransactionManagement
-//public class DruidDataSourceConfig implements EnvironmentAware {
+//public class PropertyDataSourceConfig implements EnvironmentAware {
 //
 //    private RelaxedPropertyResolver propertyResolver;
 //
