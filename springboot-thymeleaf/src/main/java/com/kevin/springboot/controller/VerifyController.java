@@ -14,8 +14,8 @@ public class VerifyController {
 
     @RequestMapping(value = "/verify")
     public ModelAndView auth(@RequestParam(value = "username", required = false) String username,
-                              @RequestParam(value = "userPwd", required = false) String userPwd,
-                              HttpSession session) {
+                             @RequestParam(value = "userPwd", required = false) String userPwd,
+                             HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("login");
         if (StringUtils.isEmpty(username) ||
                 StringUtils.isEmpty(userPwd)) {

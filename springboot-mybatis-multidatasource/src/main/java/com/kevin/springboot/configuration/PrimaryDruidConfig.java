@@ -37,7 +37,7 @@ public class PrimaryDruidConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-            .getResources("classpath:mybatis/mapper/primary/*.xml"));
+                .getResources("classpath:mybatis/mapper/primary/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 }

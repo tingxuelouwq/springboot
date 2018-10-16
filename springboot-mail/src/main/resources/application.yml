@@ -1,0 +1,8 @@
+server:
+  port: 8090
+
+spring:
+  mail:
+    host: smtp.xinhua.org
+    username: wangqi2017@xinhua.org
+    password: wasym_K.4

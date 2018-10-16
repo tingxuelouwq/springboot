@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 public class SpringbootMybatisApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootMybatisApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootMybatisApplication.class, args);
+    }
 }

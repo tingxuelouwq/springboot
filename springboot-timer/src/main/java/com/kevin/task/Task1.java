@@ -18,6 +18,6 @@ public class Task1 {
 
     @Scheduled(cron = "*/6 * * * * ?")
     private void process() {
-        System.out.println("[" + Thread.currentThread().getName() + "]" + "this is scheduler task runing  "+(count++));
+        System.out.println("[" + Thread.currentThread().getName() + "]" + "this is scheduler task runing  " + (count++));
     }
 }

@@ -13,7 +13,7 @@ public class UserController {
 
     @RequestMapping("/users")
     public ModelAndView listUsers() {
-        List<User> users = new ArrayList<User>(){
+        List<User> users = new ArrayList<User>() {
             {
                 add(new User("kevin", 25));
                 add(new User("tom", 25));

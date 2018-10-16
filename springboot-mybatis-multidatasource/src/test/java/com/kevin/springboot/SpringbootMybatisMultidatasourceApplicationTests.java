@@ -20,47 +20,47 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @SpringBootTest
 public class SpringbootMybatisMultidatasourceApplicationTests {
 
-	@Autowired
-	private WebApplicationContext context;
+    @Autowired
+    private WebApplicationContext context;
 
-	@Autowired
-	private PrimaryUserService primaryUserService;
+    @Autowired
+    private PrimaryUserService primaryUserService;
 
-	@Autowired
-	private SecondaryUserService secondaryUserService;
+    @Autowired
+    private SecondaryUserService secondaryUserService;
 
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-	@Before
-	public void setUp() {
-		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-	}
+    @Before
+    public void setUp() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+    }
 
-	@Test
-	public void testListPrimaryUsers() throws Exception {
-		mockMvc.perform(get("/primary/users"))
-				.andDo(print());
-	}
+    @Test
+    public void testListPrimaryUsers() throws Exception {
+        mockMvc.perform(get("/primary/users"))
+                .andDo(print());
+    }
 
-	@Test
-	public void testListSecondaryUsers() throws Exception {
-		mockMvc.perform(get("/secondary/users"))
-				.andDo(print());
-	}
+    @Test
+    public void testListSecondaryUsers() throws Exception {
+        mockMvc.perform(get("/secondary/users"))
+                .andDo(print());
+    }
 
-	@Test
-	public void testInsertPrimaryUser() {
-		User user = new User();
-		user.setUsername("primary");
-		user.setUserPwd("123");
-		primaryUserService.insert(user);
-	}
+    @Test
+    public void testInsertPrimaryUser() {
+        User user = new User();
+        user.setUsername("primary");
+        user.setUserPwd("123");
+        primaryUserService.insert(user);
+    }
 
-	@Test
-	public void testInsertSecondaryUser() {
-		User user = new User();
-		user.setUsername("secondary");
-		user.setUserPwd("123");
-		secondaryUserService.insert(user);
-	}
+    @Test
+    public void testInsertSecondaryUser() {
+        User user = new User();
+        user.setUsername("secondary");
+        user.setUserPwd("123");
+        secondaryUserService.insert(user);
+    }
 }

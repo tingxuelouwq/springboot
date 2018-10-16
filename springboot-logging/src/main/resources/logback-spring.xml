@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
-    <property name="log.path" value="D:/logs" />
+    <property name="log.path" value="D:/logs"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -22,13 +22,13 @@
     </appender>
 
     <root level="info">
-        <appender-ref ref="console" />
+        <appender-ref ref="console"/>
         <!--<appender-ref ref="file" />-->
     </root>
 
     <!--<logger name="com.kevin.springboot.controller"/>-->
     <!--<logger name="com.kevin.springboot.controller.LoggingController" level="WARN" additivity="false">-->
-        <!--<appender-ref ref="console"/>-->
+    <!--<appender-ref ref="console"/>-->
     <!--</logger>-->
 
     <!-- 测试环境+开发环境，用逗号分隔-->

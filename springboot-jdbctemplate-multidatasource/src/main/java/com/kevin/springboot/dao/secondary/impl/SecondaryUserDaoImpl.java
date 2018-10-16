@@ -50,7 +50,7 @@ public class SecondaryUserDaoImpl implements SecondaryUserDao {
         return namedParameterJdbcTemplate.queryForObject(sql, params, rowMapper);
     }
 
-    public     int deleteByIds(List<Long> ids) {
+    public int deleteByIds(List<Long> ids) {
         String sql = "delete from user where id in (:ids)";
         Map<String, List<Long>> params = new HashMap<>();
         params.put("ids", ids);
