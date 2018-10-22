@@ -27,8 +27,6 @@ public class Tut6Config {
 
     @Profile("client")
     private static class ClientConfig {
-
-
         @Bean
         public Tut6Client client() {
             return new Tut6Client();
